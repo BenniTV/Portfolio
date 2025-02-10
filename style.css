@@ -13,10 +13,10 @@ body {
     color: #fff;
 }
 
-/* ☀️ Light Mode */
+/* ☀️ Light Mode mit sanften Grautönen */
 body.light-mode {
-    background-color: #ffffff;
-    color: #000;
+    background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+    color: #333;
 }
 
 /* Header */
@@ -27,10 +27,12 @@ header {
 }
 
 .light-mode header {
-    background: #f4f4f4;
+    background: #ffffff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 2px solid #ddd;
 }
 
+/* Titel */
 h1 {
     font-size: 2.5rem;
     color: #00aaff;
@@ -42,9 +44,10 @@ h2 {
     text-shadow: 0 0 8px rgba(0, 170, 255, 0.6);
 }
 
+/* Light Mode Titel */
 .light-mode h1,
 .light-mode h2 {
-    color: #0077cc;
+    color: #005599;
     text-shadow: none;
 }
 
@@ -69,9 +72,15 @@ h2 {
     box-shadow: 0 0 20px rgba(0, 170, 255, 0.6);
 }
 
+/* Light Mode Projekte */
 .light-mode .project {
-    background: #f4f4f4;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+}
+
+.light-mode .project:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Footer */
@@ -82,7 +91,8 @@ footer {
 }
 
 .light-mode footer {
-    background: #f4f4f4;
+    background: #ffffff;
+    border-top: 2px solid #ddd;
 }
 
 /* Theme Toggle Button */
@@ -104,8 +114,9 @@ footer {
     box-shadow: 0 0 15px rgba(0, 170, 255, 0.8);
 }
 
+/* Light Mode Toggle Button */
 .light-mode #theme-toggle {
-    background: #0077cc;
+    background: #005599;
     color: white;
-    box-shadow: 0 0 10px rgba(0, 119, 204, 0.6);
+    box-shadow: 0 0 10px rgba(0, 85, 153, 0.6);
 }
