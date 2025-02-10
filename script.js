@@ -1,6 +1,6 @@
 const projects = [
     { name: "Vokabeltrainer (SwiftUI)", link: "#" },
-    { name: "HamburgRP Website", link: "#hamburgrp.rf.gd" },
+    { name: "HamburgRP Website", link: "hamburgrp.rf.gd" },
     { name: "Feuerwehr-Info App", link: "#" }
 ];
 
