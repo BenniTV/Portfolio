@@ -1,17 +1,22 @@
+// Beispiel: Falls du Projekte als Array speicherst
 const projects = [
-    { name: "Vokabeltrainer (SwiftUI)", link: "#" },
-    { name: "HamburgRP Website", link: "http://hamburgrp.rf.gd" },
-    { name: "Feuerwehr-Info App", link: "#" }
+    { name: "Hamburg RP", url: "http://hamburgrp.rf.gd" },
 ];
 
-const projectList = document.getElementById("project-list");
+const projectContainer = document.getElementById("projects");
 
-projects.forEach(project => {
-    let div = document.createElement("div");
-    div.className = "project";
-    div.innerHTML = `<h3>${project.name}</h3><a href="${project.link}" target="_blank">Mehr erfahren</a>`;
-    projectList.appendChild(div);
+projects.forEach(proj => {
+    const projectElement = document.createElement("div");
+    projectElement.classList.add("project");
+
+    projectElement.innerHTML = `
+        <h3>${proj.name}</h3>
+        <a href="${proj.url}" class="visit-button" target="_blank">Jetzt Besuchen</a>
+    `;
+
+    projectContainer.appendChild(projectElement);
 });
+
 
 const toggleButton = document.getElementById("theme-toggle");
 const body = document.body;

@@ -120,3 +120,37 @@ footer {
     color: white;
     box-shadow: 0 0 10px rgba(0, 85, 153, 0.6);
 }
+
+
+/* 🚀 "Jetzt Besuchen"-Button */
+.visit-button {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(45deg, #0077cc, #00aaff);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 170, 255, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Hover-Effekt */
+.visit-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 170, 255, 0.6);
+    background: linear-gradient(45deg, #005599, #0099ff);
+}
+
+/* Light Mode Button */
+.light-mode .visit-button {
+    background: linear-gradient(45deg, #005599, #0077cc);
+    box-shadow: 0 4px 10px rgba(0, 85, 153, 0.4);
+}
+
+.light-mode .visit-button:hover {
+    background: linear-gradient(45deg, #003366, #005599);
+    box-shadow: 0 6px 15px rgba(0, 85, 153, 0.6);
+}
