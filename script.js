@@ -1,6 +1,6 @@
 // Beispiel: Falls du Projekte als Array speicherst
 const projects = [
-    { name: "Hamburg RP", url: "http://hamburgrp.rf.gd" },
+    { name: "Hamburg RP(not added)", url: "#" },
 ];
 
 const projectContainer = document.getElementById("projects");
