@@ -5,7 +5,7 @@ body {
 }
 
 body.light {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    background: linear-gradient(135deg, #f5fff5 0%, #e6ffe6 100%);
 }
 
 /* Theme Transitions */
@@ -24,9 +24,10 @@ body.light {
 
 body.light .neon-text {
     text-shadow: 
-        0 0 7px rgba(0,81,255,0.7),
-        0 0 10px rgba(0,81,255,0.5),
-        0 0 21px rgba(0,81,255,0.3);
+        0 0 7px rgba(0,255,128,0.7),
+        0 0 10px rgba(0,255,128,0.5),
+        0 0 21px rgba(0,255,128,0.3);
+    color: #00b347;
 }
 
 /* Theme Toggle */
@@ -128,10 +129,10 @@ body.light .theme-toggle .sun {
 
 body.light .hover-neon:hover {
     box-shadow: 
-        0 0 15px rgba(0,81,255,0.3),
-        0 0 30px rgba(0,81,255,0.2),
-        0 0 45px rgba(0,81,255,0.1);
-    border-color: rgba(0,81,255,0.7);
+        0 0 15px rgba(0,255,128,0.3),
+        0 0 30px rgba(0,255,128,0.2),
+        0 0 45px rgba(0,255,128,0.1);
+    border-color: rgba(0,255,128,0.7);
 }
 
 /* Tooltip Animationen */
@@ -205,15 +206,64 @@ body.light {
 
 body.light .bg-spaceGray {
     background-color: #ffffff;
-    border-color: rgba(0,81,255,0.2);
+    border-color: rgba(0,255,128,0.2);
+    box-shadow: 0 4px 6px -1px rgba(0,255,128,0.1), 0 2px 4px -1px rgba(0,255,128,0.06);
 }
 
 body.light .text-gray-300 {
-    color: #374151;
+    color: #2d3748;
 }
 
 body.light .text-neonBlue {
-    color: #0051ff;
+    color: #00b347;
+}
+
+body.light .hover-neon:hover {
+    box-shadow: 
+        0 0 15px rgba(0,255,128,0.3),
+        0 0 30px rgba(0,255,128,0.2),
+        0 0 45px rgba(0,255,128,0.1);
+    border-color: rgba(0,255,128,0.7);
+}
+
+body.light .badge-pulse {
+    background-color: rgba(0,255,128,0.1);
+    border-color: rgba(0,255,128,0.3);
+}
+
+body.light [class*="backdrop-blur"] {
+    background-color: rgba(255,255,255,0.8);
+    border-color: rgba(0,255,128,0.3);
+}
+
+/* Theme Toggle Anpassungen für Light Mode */
+body.light .theme-toggle {
+    background-color: #ffffff;
+    border-color: rgba(0,255,128,0.3);
+}
+
+body.light .theme-toggle svg {
+    color: #00b347;
+}
+
+body.light .theme-toggle:hover {
+    border-color: rgba(0,255,128,0.7);
+    box-shadow: 0 0 15px rgba(0,255,128,0.3);
+}
+
+/* Refresh Button Light Mode */
+body.light #refresh-btn {
+    background-color: #ffffff;
+    border-color: rgba(0,255,128,0.3);
+}
+
+body.light #refresh-btn svg {
+    color: #00b347;
+}
+
+body.light #refresh-btn:hover {
+    border-color: rgba(0,255,128,0.7);
+    box-shadow: 0 0 15px rgba(0,255,128,0.3);
 }
 
 /* Responsive Anpassungen */

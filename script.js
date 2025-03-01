@@ -123,6 +123,11 @@ function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'group bg-spaceGray rounded-lg shadow-[0_0_15px_rgba(0,242,254,0.15)] overflow-hidden border border-neonBlue/20 hover-neon';
     
+    const isLightMode = document.body.classList.contains('light');
+    const buttonGradient = isLightMode 
+        ? 'bg-gradient-to-r from-[#00b347] to-[#00ff80]'
+        : 'bg-gradient-to-r from-neonBlue to-deepBlue';
+    
     card.innerHTML = `
         <div class="relative">
             ${project.status ? `
@@ -147,7 +152,7 @@ function createProjectCard(project) {
             </div>
             
             <a href="${project.url}" 
-               class="inline-block w-full text-center bg-gradient-to-r from-neonBlue to-deepBlue text-white px-6 py-3 rounded-lg transform transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]">
+               class="inline-block w-full text-center ${buttonGradient} text-white px-6 py-3 rounded-lg transform transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]">
                 Projekt ansehen
             </a>
         </div>
