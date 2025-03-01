@@ -105,16 +105,16 @@ const projects = [
     {
         id: 1,
         name: {
-            de: "Hamburg RP",
-            en: "Hamburg RP"
+            de: "Havensburg RP",
+            en: "Havensburg RP"
         },
         description: {
-            de: "Ein Roleplay-Projekt basierend auf der Stadt Hamburg",
-            en: "A roleplay project based on the city of Hamburg"
+            de: "Ein Roleplay-Projekt basierend auf der Stadt Havensburg",
+            en: "A roleplay project based on the city of Havensburg"
         },
-        status: "active",
+        status: "planned",
         tags: ["Gaming", "Community"],
-        url: "https://example.com/hamburg-rp"
+        url: "#"
     },
     {
         id: 2,
@@ -128,7 +128,7 @@ const projects = [
         },
         status: "completed",
         tags: ["Web", "Design"],
-        url: "https://example.com/portfolio"
+        url: "#"
     }
 ];
 
