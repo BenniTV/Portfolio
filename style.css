@@ -168,7 +168,7 @@ footer {
     transform: scale(1.1); /* Leichtes Vergrößern beim Hover */
 }
 
-/* Grundlegende Animationen und Übergänge */
+/* Grundlegende Animationen */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -183,6 +183,11 @@ html {
 :focus {
     outline: 2px solid #3B82F6;
     outline-offset: 2px;
+}
+
+/* Twitch Icon Styling */
+.twitch-icon {
+    filter: drop-shadow(0px 0px 5px #9147ff);
 }
 
 

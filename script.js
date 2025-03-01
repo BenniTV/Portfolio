@@ -4,7 +4,8 @@ const projects = [
         name: "Hamburg RP(not added)", 
         url: "#",
         description: "Ein spannendes Projekt in Entwicklung",
-        tags: ["Gaming", "Roleplay"]
+        tags: ["Gaming", "Roleplay"],
+        status: "In Entwicklung"
     },
 ];
 
@@ -16,16 +17,34 @@ const body = document.body;
 // Projekte rendern
 function renderProjects() {
     projectContainer.innerHTML = projects.map(proj => `
-        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-all">
-            <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">${proj.name}</h3>
-            <p class="text-gray-600 dark:text-gray-300 mb-4">${proj.description}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
+        <div class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-2xl p-6 
+                    transform hover:-translate-y-2 transition-all duration-300">
+            <div class="relative">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-3">
+                    ${proj.name}
+                </h3>
+                ${proj.status ? `
+                    <span class="absolute top-0 right-0 px-3 py-1 text-sm bg-primary/10 text-primary 
+                                dark:bg-primary/20 dark:text-primary-300 rounded-full">
+                        ${proj.status}
+                    </span>
+                ` : ''}
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                ${proj.description}
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
                 ${proj.tags.map(tag => `
-                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">${tag}</span>
+                    <span class="px-3 py-1 text-sm bg-gradient-to-r from-primary/10 to-secondary/10 
+                                text-primary dark:text-secondary rounded-full">
+                        ${tag}
+                    </span>
                 `).join('')}
             </div>
             <a href="${proj.url}" 
-               class="inline-block bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+               class="inline-block w-full text-center bg-gradient-to-r from-primary to-secondary 
+                      text-white px-6 py-3 rounded-lg transform transition-all duration-200 
+                      hover:shadow-lg hover:scale-[1.02] font-medium"
                target="_blank">
                 Jetzt Besuchen
             </a>
