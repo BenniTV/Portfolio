@@ -210,8 +210,18 @@ body.light .bg-spaceGray {
     box-shadow: 0 4px 6px -1px rgba(0,255,128,0.1), 0 2px 4px -1px rgba(0,255,128,0.06);
 }
 
+body.light .from-spaceGray {
+    --tw-gradient-from: #ffffff;
+    --tw-gradient-to: rgba(255, 255, 255, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+body.light .to-spaceGray\/50 {
+    --tw-gradient-to: rgba(255, 255, 255, 0.5);
+}
+
 body.light .text-gray-300 {
-    color: #2d3748;
+    color: #374151;
 }
 
 body.light .text-neonBlue {
@@ -263,6 +273,50 @@ body.light #refresh-btn svg {
 
 body.light #refresh-btn:hover {
     border-color: rgba(0,255,128,0.7);
+    box-shadow: 0 0 15px rgba(0,255,128,0.3);
+}
+
+/* Tooltip Anpassungen für Light Mode */
+body.light .group:hover .backdrop-blur-sm {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(0,255,128,0.3);
+}
+
+body.light .group:hover .text-gray-200 {
+    color: #374151;
+}
+
+/* Button und Badge Anpassungen */
+body.light .bg-neonBlue\/10 {
+    background-color: rgba(0,255,128,0.1);
+}
+
+body.light .border-neonBlue\/30 {
+    border-color: rgba(0,255,128,0.3);
+}
+
+body.light .border-neonBlue\/20 {
+    border-color: rgba(0,255,128,0.2);
+}
+
+body.light .border-neonBlue\/10 {
+    border-color: rgba(0,255,128,0.1);
+}
+
+body.light .hover\:border-neonBlue\/30:hover {
+    border-color: rgba(0,255,128,0.3);
+}
+
+body.light .hover\:border-neonBlue\/50:hover {
+    border-color: rgba(0,255,128,0.5);
+}
+
+/* Projekt Card Anpassungen für Light Mode */
+body.light .shadow-\[0_0_15px_rgba\(0\,242\,254\,0\.15\)\] {
+    box-shadow: 0 0 15px rgba(0,255,128,0.15);
+}
+
+body.light .hover\:shadow-\[0_0_15px_rgba\(0\,242\,254\,0\.3\)\]:hover {
     box-shadow: 0 0 15px rgba(0,255,128,0.3);
 }
 

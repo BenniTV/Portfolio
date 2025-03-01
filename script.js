@@ -121,38 +121,51 @@ function initializeThemeToggle() {
 // Projekt-Karte erstellen
 function createProjectCard(project) {
     const card = document.createElement('div');
-    card.className = 'group bg-spaceGray rounded-lg shadow-[0_0_15px_rgba(0,242,254,0.15)] overflow-hidden border border-neonBlue/20 hover-neon';
-    
     const isLightMode = document.body.classList.contains('light');
+    
+    card.className = `group bg-spaceGray rounded-lg ${
+        isLightMode 
+            ? 'shadow-[0_0_15px_rgba(0,255,128,0.15)]' 
+            : 'shadow-[0_0_15px_rgba(0,242,254,0.15)]'
+    } overflow-hidden border border-neonBlue/20 hover-neon`;
+    
     const buttonGradient = isLightMode 
         ? 'bg-gradient-to-r from-[#00b347] to-[#00ff80]'
         : 'bg-gradient-to-r from-neonBlue to-deepBlue';
     
+    const badgeClasses = isLightMode
+        ? 'bg-neonGreen/10 border-neonGreen/30'
+        : 'bg-neonBlue/10 border-neonBlue/30';
+    
+    const tagClasses = isLightMode
+        ? 'bg-neonGreen/10 border-neonGreen/30 text-deepGreen'
+        : 'bg-neonBlue/10 border-neonBlue/30 text-neonBlue';
+    
     card.innerHTML = `
         <div class="relative">
             ${project.status ? `
-                <div class="absolute top-4 right-4 px-3 py-1 bg-neonBlue/10 backdrop-blur-sm rounded-full border border-neonBlue/30 badge-pulse">
-                    <span class="text-neonBlue text-xs">${project.status}</span>
+                <div class="absolute top-4 right-4 px-3 py-1 backdrop-blur-sm rounded-full border ${badgeClasses} badge-pulse">
+                    <span class="text-xs ${isLightMode ? 'text-deepGreen' : 'text-neonBlue'}">${project.status}</span>
                 </div>
             ` : ''}
         </div>
         
         <div class="p-6">
-            <h3 class="text-xl font-semibold text-neonBlue mb-2">${project.name}</h3>
+            <h3 class="text-xl font-semibold mb-2 ${isLightMode ? 'text-deepGreen' : 'text-neonBlue'}">${project.name}</h3>
             <p class="text-gray-300 text-sm mb-4">
                 ${project.description}
             </p>
             
             <div class="flex flex-wrap gap-2 mb-6">
                 ${project.tags.map(tag => `
-                    <span class="px-3 py-1 bg-neonBlue/10 text-neonBlue text-xs rounded-full border border-neonBlue/30">
+                    <span class="px-3 py-1 text-xs rounded-full border ${tagClasses}">
                         ${tag}
                     </span>
                 `).join('')}
             </div>
             
             <a href="${project.url}" 
-               class="inline-block w-full text-center ${buttonGradient} text-white px-6 py-3 rounded-lg transform transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(0,242,254,0.3)]">
+               class="inline-block w-full text-center ${buttonGradient} text-white px-6 py-3 rounded-lg transform transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(0,255,128,0.3)]">
                 Projekt ansehen
             </a>
         </div>
