@@ -12,7 +12,10 @@
             theme: {
                 extend: {
                     colors: {
-                        accent: '#3B82F6'
+                        neonBlue: '#00f2fe',
+                        deepBlue: '#0051ff',
+                        nightBlack: '#0a0a0a',
+                        spaceGray: '#1a1a1a'
                     }
                 }
             }
@@ -21,35 +24,39 @@
     <!-- Eigene Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-nightBlack">
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-center text-gray-800 animate-fade-in">Portfolio</h1>
+        <h1 class="text-5xl font-bold text-center text-neonBlue animate-fade-in drop-shadow-[0_0_8px_rgba(0,242,254,0.7)]">
+            Portfolio
+        </h1>
         
         <!-- Über mich Section -->
         <section class="mt-12 max-w-2xl mx-auto animate-fade-in">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-6">👋 Hey, ich bin Benjamin</h2>
+            <h2 class="text-2xl font-semibold text-neonBlue mb-6 drop-shadow-[0_0_5px_rgba(0,242,254,0.5)]">
+                👋 Hey, ich bin Benjamin
+            </h2>
             
-            <div class="bg-white rounded-lg shadow-lg p-6 space-y-4">
-                <p class="text-gray-600 leading-relaxed">
+            <div class="bg-spaceGray rounded-lg shadow-[0_0_15px_rgba(0,242,254,0.15)] p-6 space-y-4 border border-neonBlue/20">
+                <p class="text-gray-300 leading-relaxed">
                     Ich engagiere mich in verschiedenen Bereichen:
                 </p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="flex items-center space-x-3 bg-accent/5 p-3 rounded-lg">
+                    <div class="flex items-center space-x-3 bg-gradient-to-r from-spaceGray to-spaceGray/50 p-4 rounded-lg border border-neonBlue/10 hover:border-neonBlue/30 transition-all duration-300">
                         <span class="text-2xl">🚑</span>
-                        <span class="text-gray-700">Schulsanitäter</span>
+                        <span class="text-gray-300">Schulsanitäter</span>
                     </div>
-                    <div class="flex items-center space-x-3 bg-accent/5 p-3 rounded-lg">
+                    <div class="flex items-center space-x-3 bg-gradient-to-r from-spaceGray to-spaceGray/50 p-4 rounded-lg border border-neonBlue/10 hover:border-neonBlue/30 transition-all duration-300">
                         <span class="text-2xl">🚒</span>
-                        <span class="text-gray-700">Jugendfeuerwehr</span>
+                        <span class="text-gray-300">Jugendfeuerwehr</span>
                     </div>
-                    <div class="flex items-center space-x-3 bg-accent/5 p-3 rounded-lg">
+                    <div class="flex items-center space-x-3 bg-gradient-to-r from-spaceGray to-spaceGray/50 p-4 rounded-lg border border-neonBlue/10 hover:border-neonBlue/30 transition-all duration-300">
                         <span class="text-2xl">📚</span>
-                        <span class="text-gray-700">Schulmentor</span>
+                        <span class="text-gray-300">Schulmentor</span>
                     </div>
-                    <div class="flex items-center space-x-3 bg-accent/5 p-3 rounded-lg">
+                    <div class="flex items-center space-x-3 bg-gradient-to-r from-spaceGray to-spaceGray/50 p-4 rounded-lg border border-neonBlue/10 hover:border-neonBlue/30 transition-all duration-300">
                         <span class="text-2xl">🚲</span>
-                        <span class="text-gray-700">Begeisterter Radfahrer</span>
+                        <span class="text-gray-300">Begeisterter Radfahrer</span>
                     </div>
                 </div>
             </div>
