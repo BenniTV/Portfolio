@@ -320,6 +320,21 @@ body.light .hover\:shadow-\[0_0_15px_rgba\(0\,242\,254\,0\.3\)\]:hover {
     box-shadow: 0 0 15px rgba(0,255,128,0.3);
 }
 
+/* Social Media Anpassungen */
+body.light .from-\[#9146FF\] {
+    --tw-gradient-from: #9146FF;
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+body.light .to-\[#7c13ff\] {
+    --tw-gradient-to: #7c13ff;
+}
+
+/* Hover Effekt für Twitch Button */
+.hover\:shadow-\[0_0_15px_rgba\(145\,70\,255\,0\.5\)\]:hover {
+    box-shadow: 0 0 15px rgba(145,70,255,0.5);
+}
+
 /* Responsive Anpassungen */
 @media (max-width: 640px) {
     .container {
