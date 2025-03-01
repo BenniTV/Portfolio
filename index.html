@@ -4,26 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benjamin - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <h1>👋 Hey, ich bin Benjamin</h1>
-        <p>Entwickler | Jugendfeuerwehler | Schulsanitäter | Technik-Enthusiast</p>
-        <button id="theme-toggle">🌙 Dark Mode</button>
-    </header>
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-200">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-4">👋 Hey, ich bin Benjamin</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300">Entwickler | Jugendfeuerwehler | Schulsanitäter | Technik-Enthusiast</p>
+            <button id="theme-toggle" class="mt-4 px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-600 transition-colors">
+                🌙 Dark Mode
+            </button>
+        </header>
 
-    <section id="projects">
-        <h2>🚀 Meine Projekte</h2>
-        <div id="project-list"></div>
-    </section>
+        <section id="projects" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">🚀 Meine Projekte</h2>
+            <div id="project-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
 
-    <footer>
-        <a href="https://www.twitch.tv/bennitv09" target="_blank" class="twitch-link">
-            <img src="twitch-icon.svg" alt="Twitch" class="twitch-icon">
-        </a>        
-        <p>© 2025 Benjamin - Portfolio</p>
-    </footer>
+        <footer class="text-center">
+            <a href="https://www.twitch.tv/bennitv09" target="_blank" class="inline-block hover:opacity-80 transition-opacity mb-4">
+                <img src="twitch-icon.svg" alt="Twitch" class="w-8 h-8">
+            </a>        
+            <p class="text-gray-600 dark:text-gray-400">© 2025 Benjamin - Portfolio</p>
+        </footer>
+    </div>
 
     <script src="script.js"></script>
 </body>
