@@ -25,13 +25,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-nightBlack min-h-screen">
+    <!-- Refresh Button -->
+    <button id="refresh-btn" 
+            class="fixed top-4 right-4 p-3 bg-spaceGray rounded-full border border-neonBlue/20 hover:border-neonBlue/50 shadow-lg hover:shadow-neonBlue/20 transition-all duration-300 refresh-spin z-50">
+        <svg class="w-6 h-6 text-neonBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+        </svg>
+    </button>
+
     <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-center text-neonBlue animate-fade-in drop-shadow-[0_0_8px_rgba(0,242,254,0.7)]">
             Portfolio
         </h1>
         
         <!-- Über mich Section -->
-        <section class="mt-8 sm:mt-12 max-w-4xl mx-auto animate-fade-in">
+        <section class="mt-8 sm:mt-12 max-w-4xl mx-auto animate-slide-up">
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-neonBlue mb-6 drop-shadow-[0_0_5px_rgba(0,242,254,0.5)]">
                 👋 Hey, ich bin Benjamin
             </h2>
@@ -79,7 +87,7 @@
         </section>
 
         <!-- Projekte Section -->
-        <section class="mt-16 sm:mt-20 max-w-4xl mx-auto animate-fade-in">
+        <section class="mt-16 sm:mt-20 max-w-4xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-neonBlue mb-6 drop-shadow-[0_0_5px_rgba(0,242,254,0.5)]">
                 🚀 Meine Projekte
             </h2>

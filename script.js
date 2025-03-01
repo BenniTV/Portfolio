@@ -21,6 +21,7 @@ const projects = [
 // DOM Elemente
 document.addEventListener('DOMContentLoaded', () => {
     initializeProjects();
+    initializeRefreshButton();
 });
 
 // Projekte initialisieren
@@ -29,9 +30,30 @@ function initializeProjects() {
     if (!projectsGrid) return;
 
     // Projekte rendern
-    projects.forEach(project => {
+    projects.forEach((project, index) => {
         const projectCard = createProjectCard(project);
+        projectCard.style.animationDelay = `${0.1 + index * 0.1}s`;
+        projectCard.classList.add('animate-scale');
         projectsGrid.appendChild(projectCard);
+    });
+}
+
+// Refresh Button Funktionalität
+function initializeRefreshButton() {
+    const refreshBtn = document.getElementById('refresh-btn');
+    if (!refreshBtn) return;
+
+    refreshBtn.addEventListener('click', () => {
+        // Button Animation
+        refreshBtn.classList.add('refresh-active');
+        
+        // Seiten-Übergang
+        document.body.classList.add('page-transition');
+
+        // Warte kurz und lade dann die Seite neu
+        setTimeout(() => {
+            window.location.reload();
+        }, 300);
     });
 }
 
