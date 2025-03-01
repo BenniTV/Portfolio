@@ -195,7 +195,7 @@ body.light .hover-neon:hover {
     }
     50% {
         opacity: 0.8;
-        transform: scale(1.05);
+    transform: scale(1.05);
     }
 }
 
