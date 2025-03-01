@@ -22,6 +22,7 @@ const projects = [
 document.addEventListener('DOMContentLoaded', () => {
     initializeProjects();
     initializeRefreshButton();
+    initializeThemeToggle();
     addScrollAnimations();
 });
 
@@ -88,6 +89,32 @@ function initializeRefreshButton() {
         setTimeout(() => {
             window.location.reload();
         }, 500);
+    });
+}
+
+// Theme Toggle
+function initializeThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Prüfe gespeichertes Theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        body.classList.add('light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        // Toggle Animation
+        themeToggle.classList.add('animate-scale');
+        setTimeout(() => {
+            themeToggle.classList.remove('animate-scale');
+        }, 300);
+
+        // Theme Toggle
+        body.classList.toggle('light');
+        
+        // Theme speichern
+        localStorage.setItem('theme', body.classList.contains('light') ? 'light' : 'dark');
     });
 }
 
