@@ -1,20 +1,134 @@
+// Translations
+const translations = {
+    de: {
+        greeting: "👋 Hey, ich bin Benjamin",
+        activities: "Ich engagiere mich in verschiedenen Bereichen:",
+        firstAider: "Schulsanitäter",
+        firstAiderTooltip: "Erste Hilfe und medizinische Unterstützung in der Schule",
+        youthFirefighter: "Jugendfeuerwehr",
+        youthFirefighterTooltip: "Aktives Mitglied der Jugendfeuerwehr",
+        schoolMentor: "Schulmentor",
+        schoolMentorTooltip: "Unterstützung und Beratung für Mitschüler",
+        cyclist: "Begeisterter Radfahrer",
+        cyclistTooltip: "Aktiver Radsportler mit Leidenschaft für Bewegung",
+        socialMedia: "🎮 Social Media",
+        twitchLink: "BenniTV09 auf Twitch",
+        projects: "🚀 Meine Projekte",
+        status: {
+            active: "Aktiv",
+            completed: "Abgeschlossen",
+            inProgress: "In Arbeit",
+            planned: "Geplant"
+        }
+    },
+    en: {
+        greeting: "👋 Hey, I'm Benjamin",
+        activities: "I'm engaged in various areas:",
+        firstAider: "School First Aider",
+        firstAiderTooltip: "First aid and medical support at school",
+        youthFirefighter: "Youth Fire Brigade",
+        youthFirefighterTooltip: "Active member of the youth fire brigade",
+        schoolMentor: "School Mentor",
+        schoolMentorTooltip: "Support and guidance for fellow students",
+        cyclist: "Passionate Cyclist",
+        cyclistTooltip: "Active cyclist with a passion for movement",
+        socialMedia: "🎮 Social Media",
+        twitchLink: "BenniTV09 on Twitch",
+        projects: "🚀 My Projects",
+        status: {
+            active: "Active",
+            completed: "Completed",
+            inProgress: "In Progress",
+            planned: "Planned"
+        }
+    }
+};
+
+// Current language state
+let currentLang = localStorage.getItem('language') || 'de';
+document.documentElement.lang = currentLang;
+
+// Initialize language toggle
+function initializeLanguageToggle() {
+    const langToggle = document.getElementById('language-toggle');
+    const currentLangSpan = document.getElementById('current-lang');
+    
+    // Set initial language display
+    currentLangSpan.textContent = currentLang.toUpperCase();
+    
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'de' ? 'en' : 'de';
+        localStorage.setItem('language', currentLang);
+        document.documentElement.lang = currentLang;
+        currentLangSpan.textContent = currentLang.toUpperCase();
+        updatePageContent();
+    });
+}
+
+// Update page content based on selected language
+function updatePageContent() {
+    // Update greeting
+    document.querySelector('h2').textContent = translations[currentLang].greeting;
+    
+    // Update activities text
+    document.querySelector('.text-gray-300.leading-relaxed').textContent = translations[currentLang].activities;
+    
+    // Update activity cards
+    const activities = [
+        { selector: 0, text: 'firstAider', tooltip: 'firstAiderTooltip' },
+        { selector: 1, text: 'youthFirefighter', tooltip: 'youthFirefighterTooltip' },
+        { selector: 2, text: 'schoolMentor', tooltip: 'schoolMentorTooltip' },
+        { selector: 3, text: 'cyclist', tooltip: 'cyclistTooltip' }
+    ];
+    
+    const activityCards = document.querySelectorAll('.group.relative.flex');
+    activities.forEach((activity, index) => {
+        const card = activityCards[index];
+        card.querySelector('.text-gray-300').textContent = translations[currentLang][activity.text];
+        card.querySelector('.opacity-0').textContent = translations[currentLang][activity.tooltip];
+    });
+    
+    // Update section titles
+    const sections = document.querySelectorAll('section h2');
+    sections[1].textContent = translations[currentLang].socialMedia;
+    sections[2].textContent = translations[currentLang].projects;
+    
+    // Update Twitch link text
+    document.querySelector('a[href*="twitch.tv"] span').textContent = translations[currentLang].twitchLink;
+    
+    // Update project cards
+    updateProjects();
+}
+
 // Projekte Daten
 const projects = [
     {
         id: 1,
-        name: "Hamburg RP",
-        description: "Ein spannendes Roleplay-Projekt, das sich derzeit in der Entwicklung befindet.",
-        status: "In Entwicklung",
-        tags: ["Gaming", "Roleplay"],
-        url: "#"
+        name: {
+            de: "Hamburg RP",
+            en: "Hamburg RP"
+        },
+        description: {
+            de: "Ein Roleplay-Projekt basierend auf der Stadt Hamburg",
+            en: "A roleplay project based on the city of Hamburg"
+        },
+        status: "active",
+        tags: ["Gaming", "Community"],
+        url: "https://example.com/hamburg-rp"
     },
     {
         id: 2,
-        name: "Havensburg Roleplay",
-        description: "Ein spannendes Roleplay-Projekt, das sich derzeit in der Entwicklung befindet.",
-        status: "In Entwicklung",
-        tags: ["Gaming", "Roleplay", "German"],
-        url: "#"
+        name: {
+            de: "Portfolio Website",
+            en: "Portfolio Website"
+        },
+        description: {
+            de: "Meine persönliche Portfolio-Website mit Projekten und Aktivitäten",
+            en: "My personal portfolio website showcasing projects and activities"
+        },
+        status: "completed",
+        tags: ["Web", "Design"],
+        url: "https://example.com/portfolio"
     }
 ];
 
@@ -23,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeProjects();
     initializeRefreshButton();
     initializeThemeToggle();
+    initializeLanguageToggle();
     addScrollAnimations();
 });
 
@@ -121,55 +236,42 @@ function initializeThemeToggle() {
 // Projekt-Karte erstellen
 function createProjectCard(project) {
     const card = document.createElement('div');
-    const isLightMode = document.body.classList.contains('light');
+    card.className = 'bg-spaceGray rounded-lg p-4 sm:p-6 border border-neonBlue/20 hover-neon transform transition-all duration-300 hover:scale-[1.02]';
     
-    card.className = `group bg-spaceGray rounded-lg ${
-        isLightMode 
-            ? 'shadow-[0_0_15px_rgba(0,255,128,0.15)]' 
-            : 'shadow-[0_0_15px_rgba(0,242,254,0.15)]'
-    } overflow-hidden border border-neonBlue/20 hover-neon`;
+    const statusColors = {
+        active: 'bg-green-500',
+        completed: 'bg-blue-500',
+        inProgress: 'bg-yellow-500',
+        planned: 'bg-purple-500'
+    };
     
-    const buttonGradient = isLightMode 
-        ? 'bg-gradient-to-r from-[#00b347] to-[#00ff80]'
-        : 'bg-gradient-to-r from-neonBlue to-deepBlue';
-    
-    const badgeClasses = isLightMode
-        ? 'bg-neonGreen/10 border-neonGreen/30'
-        : 'bg-neonBlue/10 border-neonBlue/30';
-    
-    const tagClasses = isLightMode
-        ? 'bg-neonGreen/10 border-neonGreen/30 text-deepGreen'
-        : 'bg-neonBlue/10 border-neonBlue/30 text-neonBlue';
+    const statusText = translations[currentLang].status[project.status];
     
     card.innerHTML = `
-        <div class="relative">
-            ${project.status ? `
-                <div class="absolute top-4 right-4 px-3 py-1 backdrop-blur-sm rounded-full border ${badgeClasses} badge-pulse">
-                    <span class="text-xs ${isLightMode ? 'text-deepGreen' : 'text-neonBlue'}">${project.status}</span>
-                </div>
-            ` : ''}
+        <div class="flex justify-between items-start mb-4">
+            <h3 class="text-lg sm:text-xl font-semibold text-neonBlue">
+                ${project.name[currentLang]}
+            </h3>
+            <span class="badge-pulse px-2 py-1 rounded-full text-xs font-semibold ${statusColors[project.status]}">
+                ${statusText}
+            </span>
         </div>
-        
-        <div class="p-6">
-            <h3 class="text-xl font-semibold mb-2 ${isLightMode ? 'text-deepGreen' : 'text-neonBlue'}">${project.name}</h3>
-            <p class="text-gray-300 text-sm mb-4">
-                ${project.description}
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-6">
-                ${project.tags.map(tag => `
-                    <span class="px-3 py-1 text-xs rounded-full border ${tagClasses}">
-                        ${tag}
-                    </span>
-                `).join('')}
-            </div>
-            
-            <a href="${project.url}" 
-               class="inline-block w-full text-center ${buttonGradient} text-white px-6 py-3 rounded-lg transform transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_0_15px_rgba(0,255,128,0.3)]">
-                Projekt ansehen
-            </a>
+        <p class="text-gray-300 mb-4 text-sm sm:text-base">
+            ${project.description[currentLang]}
+        </p>
+        <div class="flex flex-wrap gap-2">
+            ${project.tags.map(tag => `
+                <span class="px-2 py-1 rounded-full text-xs font-semibold bg-neonBlue/10 text-neonBlue border border-neonBlue/20">
+                    ${tag}
+                </span>
+            `).join('')}
         </div>
     `;
+    
+    if (project.url) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => window.open(project.url, '_blank'));
+    }
     
     return card;
 }
