@@ -22,6 +22,7 @@ const projects = [
 document.addEventListener('DOMContentLoaded', () => {
     initializeProjects();
     initializeRefreshButton();
+    addScrollAnimations();
 });
 
 // Projekte initialisieren
@@ -32,9 +33,42 @@ function initializeProjects() {
     // Projekte rendern
     projects.forEach((project, index) => {
         const projectCard = createProjectCard(project);
-        projectCard.style.animationDelay = `${0.1 + index * 0.1}s`;
-        projectCard.classList.add('animate-scale');
+        projectCard.style.opacity = "0";
+        projectCard.style.transform = "translateY(20px)";
+        projectCard.style.transition = "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        projectCard.style.transitionDelay = `${0.2 + index * 0.15}s`;
         projectsGrid.appendChild(projectCard);
+        
+        // Force reflow
+        projectCard.offsetHeight;
+        
+        projectCard.style.opacity = "1";
+        projectCard.style.transform = "translateY(0)";
+    });
+}
+
+// Scroll Animationen
+function addScrollAnimations() {
+    const animateOnScroll = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(animateOnScroll, {
+        threshold: 0.1,
+        rootMargin: "0px"
+    });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)";
+        observer.observe(el);
     });
 }
 
@@ -53,7 +87,7 @@ function initializeRefreshButton() {
         // Warte kurz und lade dann die Seite neu
         setTimeout(() => {
             window.location.reload();
-        }, 300);
+        }, 500);
     });
 }
 
@@ -65,7 +99,7 @@ function createProjectCard(project) {
     card.innerHTML = `
         <div class="relative">
             ${project.status ? `
-                <div class="absolute top-4 right-4 px-3 py-1 bg-neonBlue/10 backdrop-blur-sm rounded-full border border-neonBlue/30">
+                <div class="absolute top-4 right-4 px-3 py-1 bg-neonBlue/10 backdrop-blur-sm rounded-full border border-neonBlue/30 badge-pulse">
                     <span class="text-neonBlue text-xs">${project.status}</span>
                 </div>
             ` : ''}
