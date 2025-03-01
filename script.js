@@ -7,6 +7,14 @@ const projects = [
         status: "In Entwicklung",
         tags: ["Gaming", "Roleplay"],
         url: "#"
+    },
+    {
+        id: 2,
+        name: "Havensburg Roleplay",
+        description: "Ein spannendes Roleplay-Projekt, das sich derzeit in der Entwicklung befindet.",
+        status: "In Entwicklung",
+        tags: ["Gaming", "Roleplay", "German"],
+        url: "#"
     }
 ];
 
