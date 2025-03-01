@@ -6,8 +6,7 @@ const projects = [
         description: "Ein spannendes Roleplay-Projekt, das sich derzeit in der Entwicklung befindet.",
         status: "In Entwicklung",
         tags: ["Gaming", "Roleplay"],
-        url: "#",
-        image: null // Optional für zukünftige Projektbilder
+        url: "#"
     }
 ];
 
@@ -18,24 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Projekte initialisieren
 function initializeProjects() {
-    const projectsContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2');
-    if (!projectsContainer) return;
+    const projectsGrid = document.getElementById('projects-grid');
+    if (!projectsGrid) return;
 
-    // Bestehende Projekte rendern
+    // Projekte rendern
     projects.forEach(project => {
         const projectCard = createProjectCard(project);
-        // Vor der "Neues Projekt" Karte einfügen
-        projectsContainer.insertBefore(projectCard, projectsContainer.lastElementChild);
+        projectsGrid.appendChild(projectCard);
     });
-
-    // Event Listener für "Neues Projekt" Karte
-    const newProjectCard = projectsContainer.lastElementChild;
-    if (newProjectCard) {
-        newProjectCard.addEventListener('click', () => {
-            // Hier könnte später ein Modal oder Formular zum Hinzufügen neuer Projekte geöffnet werden
-            alert('Diese Funktion wird bald verfügbar sein!');
-        });
-    }
 }
 
 // Projekt-Karte erstellen
